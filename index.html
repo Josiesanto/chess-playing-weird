@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine erste Website</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        a {
-            text-decoration: none;
-        }
-        img {
-            max-width: 300px;
+    <title>Kunsthalle AR Show!</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+     <style>
+        model-viewer {
+            width: 100%; /* 100% of the parent's width */
+            height: 80vh; /* 80% of the viewport height */
+            display: block;
+            margin: auto;
         }
     </style>
-</head>
-<body>
-    <h1>Willkommen auf meiner Webseite</h1>
-    <p>Dies ist ein Absatz.</p>
-        <a href="Schach 2.usdz" rel="ar">
-        <img src="Schach 2.usdz" alt="View in AR">
-    </a>
-</body>
+  </head>
+  <body>
+<H2>Skulptur 3</H2>
+  <model-viewer 
+                id="model-viewer"
+                src="ar-test-1.glb"
+                ios-src="ar-test-1.usdz"
+                alt="Kunsthalle AR Show"
+                ar
+                ar-modes="webxr scene-viewer quick-look" 
+                environment-image="neutral" 
+                auto-rotate
+                camera-controls
+                animation-name="CubeAction" 
+                animation-loop>  
+  </model-viewer>
+   </body>
 </html>
