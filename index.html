@@ -12,7 +12,7 @@
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #ff80ab, #ff4081);
+      background: linear-gradient(135deg, #e1bee7, #a5d6a7);
       color: white;
       text-align: center;
       display: flex;
@@ -27,12 +27,45 @@
       font-size: 2.5em;
       font-weight: 600;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      animation: fadeIn 2s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .star-button {
+      background-color: #ff4081;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      padding: 15px 25px;
+      font-size: 1.5em;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .star-button:hover {
+      background-color: #e91e63;
+      transform: scale(1.1);
+    }
+
+    .star-button:active {
+      background-color: #c2185b;
     }
 
     model-viewer {
       width: 90%;
       height: 70vh;
-      display: block;
+      display: none;
       margin: 20px auto;
       border: 5px solid white;
       border-radius: 15px;
@@ -40,9 +73,18 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
+    .show {
+      display: block;
+    }
+
     @media (max-width: 768px) {
       h2 {
         font-size: 2em;
+      }
+
+      .star-button {
+        font-size: 1.2em;
+        padding: 10px 20px;
       }
 
       model-viewer {
@@ -53,6 +95,9 @@
 </head>
 <body>
   <h2>Hallöchen :P</h2>
+  <div class="button-container">
+    <button class="star-button" onclick="showModelViewer()">⭐</button>
+  </div>
   <model-viewer 
     id="model-viewer"
     src="SchachNeu.glb"
@@ -66,5 +111,11 @@
     animation-name="CubeAction" 
     animation-loop>  
   </model-viewer>
+  <script>
+    function showModelViewer() {
+      document.getElementById('model-viewer').classList.add('show');
+      document.querySelector('.button-container').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
