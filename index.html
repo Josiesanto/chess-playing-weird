@@ -53,11 +53,11 @@
       display: inline-block;
       width: 60px;
       height: 60px;
-      background-color: #ff4081;
+      background: linear-gradient(135deg, #ff4081, #e91e63);
       border-radius: 50%;
       transform: rotate(-45deg);
       cursor: pointer;
-      transition: background-color 0.3s, transform 0.3s;
+      transition: transform 0.3s;
       text-transform: lowercase;
     }
 
@@ -67,9 +67,8 @@
       position: absolute;
       width: 60px;
       height: 60px;
-      background-color: #ff4081;
+      background: linear-gradient(135deg, #ff4081, #e91e63);
       border-radius: 50%;
-      transition: background-color 0.3s;
     }
 
     .heart-button::before {
@@ -83,13 +82,33 @@
     }
 
     .heart-button:hover {
-      background-color: #e91e63;
       transform: rotate(-45deg) scale(1.1);
     }
 
     .heart-button:active {
-      background-color: #c2185b;
-      transform: rotate(-45deg) scale(0.9);
+      animation: gradientMove 0.3s ease-in-out, dripEffect 0.5s forwards;
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background: linear-gradient(135deg, #ff4081, #e91e63);
+      }
+      100% {
+        background: linear-gradient(135deg, #e91e63, #c2185b);
+      }
+    }
+
+    @keyframes dripEffect {
+      0% {
+        transform: rotate(-45deg) scale(0.9);
+      }
+      50% {
+        transform: rotate(-45deg) scale(1.1);
+      }
+      100% {
+        transform: rotate(-45deg) scale(1.2) translateY(20px);
+        opacity: 0;
+      }
     }
 
     model-viewer {
