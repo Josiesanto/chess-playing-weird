@@ -55,58 +55,50 @@
       height: 60px;
       background: linear-gradient(135deg, #ff4081, #e91e63);
       border-radius: 50%;
-      transform: rotate(-45deg);
       cursor: pointer;
-      transition: transform 0.3s;
-      text-transform: lowercase;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
     }
 
     .heart-button::before,
     .heart-button::after {
       content: "";
       position: absolute;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #ff4081, #e91e63);
+      width: 100%;
+      height: 100%;
+      background: inherit;
       border-radius: 50%;
     }
 
     .heart-button::before {
-      top: -30px;
+      top: 0;
       left: 0;
     }
 
     .heart-button::after {
-      left: 30px;
-      top: 0;
+      bottom: 0;
+      right: 0;
     }
 
     .heart-button:hover {
-      transform: rotate(-45deg) scale(1.1);
+      transform: scale(1.1);
     }
 
-    .heart-button:active {
-      animation: gradientMove 0.3s ease-in-out, dripEffect 0.5s forwards;
+    .heart-button:active::after {
+      animation: drop 0.5s forwards;
     }
 
-    @keyframes gradientMove {
+    @keyframes drop {
       0% {
-        background: linear-gradient(135deg, #ff4081, #e91e63);
-      }
-      100% {
-        background: linear-gradient(135deg, #e91e63, #c2185b);
-      }
-    }
-
-    @keyframes dripEffect {
-      0% {
-        transform: rotate(-45deg) scale(0.9);
+        transform: scale(1);
+        opacity: 1;
       }
       50% {
-        transform: rotate(-45deg) scale(1.1);
+        transform: scale(0.8);
+        opacity: 0.5;
       }
       100% {
-        transform: rotate(-45deg) scale(1.2) translateY(20px);
+        transform: scale(0.5);
         opacity: 0;
       }
     }
@@ -132,12 +124,6 @@
       }
 
       .heart-button {
-        width: 50px;
-        height: 50px;
-      }
-
-      .heart-button::before,
-      .heart-button::after {
         width: 50px;
         height: 50px;
       }
