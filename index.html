@@ -28,6 +28,20 @@
       height: 100vh;
     }
 
+    h1 {
+      font-size: 3em;
+      font-weight: 600;
+      margin-bottom: 0.2em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 0 20px;
+      line-height: 1.5;
+      max-width: 600px;
+    }
+
     h2 {
       margin-top: 20px;
       font-size: 2.5em;
@@ -168,7 +182,16 @@
       display: none;
     }
 
+    .instagram-link {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+
     @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5em;
+      }
+
       h2 {
         font-size: 2em;
       }
@@ -182,10 +205,20 @@
       model-viewer {
         height: 60vh;
       }
+
+      p {
+        font-size: 1em;
+      }
+
+      .instagram-link {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
 <body>
+  <h1>Interaktive Kunsthalle AR Show</h1>
+  <p>Willkommen zur faszinierenden Kunsthalle AR Show! Tauchen Sie ein in eine Welt, in der Kunst und Technologie auf beeindruckende Weise verschmelzen. Mit einem Klick auf die farbenfrohen Herz- und Stern-Buttons können Sie eine erstaunliche 3D-Modelle-Show erleben. Schauen Sie sich unser exklusives "SchachNeu"-Modell an, das Sie direkt auf Ihrem Gerät in Augmented Reality genießen können.</p>
   <h2 id="heading1">hallöchen :p</h2>
   <div class="button-container" id="initial-buttons">
     <div class="heart-button" onclick="showModelViewer()"></div>
@@ -207,6 +240,10 @@
   <div class="button-container hide" id="back-button">
     <div class="star-button" onclick="goBack()"></div>
   </div>
+  <p class="instagram-link">
+    Folgen Sie uns auf Instagram: 
+    <a href="https://www.instagram.com/josis.atelier" target="_blank" style="color: #ff4081; text-decoration: none;">@josis.atelier</a>
+  </p>
   <script>
     function showModelViewer() {
       document.getElementById('model-viewer').classList.add('show');
