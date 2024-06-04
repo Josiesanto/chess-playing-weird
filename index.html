@@ -48,16 +48,22 @@
       margin-top: 20px;
     }
 
-    .heart-button {
+    .heart-button,
+    .star-button {
       position: relative;
       display: inline-block;
       width: 60px;
       height: 60px;
-      background: linear-gradient(135deg, #ff4081, #e91e63);
-      border-radius: 50%;
       cursor: pointer;
       text-align: center;
       transition: transform 0.3s, background 0.3s;
+      z-index: 1;
+    }
+
+    .heart-button {
+      background: linear-gradient(135deg, #ff4081, #e91e63);
+      border-radius: 50%;
+      transform: rotate(-45deg);
     }
 
     .heart-button::before,
@@ -81,7 +87,7 @@
     }
 
     .heart-button:hover {
-      transform: scale(1.1);
+      transform: scale(1.1) rotate(-45deg);
     }
 
     .heart-button:active::after {
@@ -89,6 +95,46 @@
     }
 
     @keyframes drop {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    .star-button {
+      background: linear-gradient(135deg, red, orange, yellow, green, blue, indigo, violet);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      animation: rainbow 2s linear infinite;
+    }
+
+    @keyframes rainbow {
+      0% {
+        filter: hue-rotate(0deg);
+      }
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    .star-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+
+    .star-button:active {
+      transform: scale(0.9);
+      animation: dropStar 0.5s forwards;
+    }
+
+    @keyframes dropStar {
       0% {
         transform: scale(1);
         opacity: 1;
@@ -118,12 +164,17 @@
       display: block;
     }
 
+    .hide {
+      display: none;
+    }
+
     @media (max-width: 768px) {
       h2 {
         font-size: 2em;
       }
 
-      .heart-button {
+      .heart-button,
+      .star-button {
         width: 50px;
         height: 50px;
       }
@@ -135,10 +186,11 @@
   </style>
 </head>
 <body>
-  <h2>jetzt gehts los :)</h2>
-  <div class="button-container">
+  <h2 id="heading1">hallöchen :p</h2>
+  <div class="button-container" id="initial-buttons">
     <div class="heart-button" onclick="showModelViewer()"></div>
   </div>
+  <h2 id="heading2" class="hide">jetzt gehts los :)</h2>
   <model-viewer 
     id="model-viewer"
     src="SchachNeu.glb"
@@ -152,10 +204,24 @@
     animation-name="CubeAction" 
     animation-loop>  
   </model-viewer>
+  <div class="button-container hide" id="back-button">
+    <div class="star-button" onclick="goBack()"></div>
+  </div>
   <script>
     function showModelViewer() {
       document.getElementById('model-viewer').classList.add('show');
-      document.querySelector('.button-container').style.display = 'none';
+      document.getElementById('heading1').classList.add('hide');
+      document.getElementById('heading2').classList.remove('hide');
+      document.getElementById('initial-buttons').classList.add('hide');
+      document.getElementById('back-button').classList.remove('hide');
+    }
+
+    function goBack() {
+      document.getElementById('model-viewer').classList.remove('show');
+      document.getElementById('heading1').classList.remove('hide');
+      document.getElementById('heading2').classList.add('hide');
+      document.getElementById('initial-buttons').classList.remove('hide');
+      document.getElementById('back-button').classList.add('hide');
     }
   </script>
 </body>
