@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>kunsthalle ar show!</title>
+  <title>Kunsthalle AR Show!</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;600&display=swap');
@@ -218,17 +218,18 @@
 </head>
 <body>
   <h1>(: moinsen :)</h1>
-  <p>schafe und ai haben beide ein erstaunliches gedächtnis! schafe können sich gesichter merken, während ai informationen speichern und abrufen kann. interessante verbindung, oder?</p>
+  <p>Schafe und AI haben beide ein erstaunliches Gedächtnis! Schafe können sich Gesichter merken, während AI Informationen speichern und abrufen kann. Interessante Verbindung, oder?</p>
   <h2 id="heading1">let's go</h2>
   <div class="button-container" id="initial-buttons">
-    <div class="heart-button" onclick="showModelViewer()"></div>
+    <div class="heart-button" onclick="showModelViewer()" aria-label="Show 3D model"></div>
   </div>
   <h2 id="heading2" class="hide">here we go</h2>
+  <p id="second-page-text" class="hide">Schafe und AI haben unterschiedliche Arten von Intelligenz. Schafe haben emotionale Intelligenz, indem sie bis zu sechs verschiedene Emotionen erkennen können, während AI über kognitive Intelligenz verfügt, um Informationen zu speichern und abzurufen. Beide haben auf ihre Weise Stärken und Fähigkeiten.</p>
   <model-viewer 
     id="model-viewer"
     src="jetzt10 1.glb"
     ios-src="jetzt10 1.usdz"
-    alt="kunsthalle ar show"
+    alt="kunsthalle AR show"
     ar
     ar-modes="webxr scene-viewer quick-look" 
     environment-image="neutral" 
@@ -238,7 +239,7 @@
     animation-loop>  
   </model-viewer>
   <div class="button-container hide" id="back-button">
-    <div class="star-button" onclick="goBack()"></div>
+    <div class="star-button" onclick="goBack()" aria-label="Go back"></div>
   </div>
   <p class="instagram-link">
     Insta: 
@@ -249,6 +250,7 @@
       document.getElementById('model-viewer').classList.add('show');
       document.getElementById('heading1').classList.add('hide');
       document.getElementById('heading2').classList.remove('hide');
+      document.getElementById('second-page-text').classList.remove('hide');
       document.getElementById('initial-buttons').classList.add('hide');
       document.getElementById('back-button').classList.remove('hide');
     }
@@ -257,6 +259,7 @@
       document.getElementById('model-viewer').classList.remove('show');
       document.getElementById('heading1').classList.remove('hide');
       document.getElementById('heading2').classList.add('hide');
+      document.getElementById('second-page-text').classList.add('hide');
       document.getElementById('initial-buttons').classList.remove('hide');
       document.getElementById('back-button').classList.add('hide');
     }
