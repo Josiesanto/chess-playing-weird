@@ -217,8 +217,8 @@
   </style>
 </head>
 <body>
-  <h1>(: moinsen :)</h1>
-  <p>Schafe und AI haben beide ein erstaunliches Gedächtnis! Schafe können sich Gesichter merken, während AI Informationen speichern und abrufen kann. Interessante Verbindung, oder?</p>
+  <h1 id="first-heading">(: moinsen :)</h1>
+  <p id="first-paragraph">Schafe und AI haben beide ein erstaunliches Gedächtnis! Schafe können sich Gesichter merken, während AI Informationen speichern und abrufen kann. Interessante Verbindung, oder?</p>
   <h2 id="heading1">let's go</h2>
   <div class="button-container" id="initial-buttons">
     <div class="heart-button" onclick="showModelViewer()" aria-label="Show 3D model"></div>
@@ -243,12 +243,16 @@
   </div>
   <p class="instagram-link">
     Insta: 
-    <a href="https://www.instagram.com/josis.atelier" target="_blank" style="color: #ff4081; text-decoration: none;">@josis.atelier</a>
+    <a href="https://www.instagram.com/josis.atelier" target="_blank"> 
+      <img src="instagram_icon.png" alt="Instagram" width="50" height="50"> 
+    </a>
   </p>
   <script>
     function showModelViewer() {
       document.getElementById('model-viewer').classList.add('show');
       document.getElementById('heading1').classList.add('hide');
+      document.getElementById('first-heading').classList.add('hide');
+      document.getElementById('first-paragraph').classList.add('hide');
       document.getElementById('heading2').classList.remove('hide');
       document.getElementById('second-page-text').classList.remove('hide');
       document.getElementById('initial-buttons').classList.add('hide');
@@ -258,11 +262,7 @@
     function goBack() {
       document.getElementById('model-viewer').classList.remove('show');
       document.getElementById('heading1').classList.remove('hide');
+      document.getElementById('first-heading').classList.remove('hide');
+      document.getElementById('first-paragraph').classList.remove('hide');
       document.getElementById('heading2').classList.add('hide');
-      document.getElementById('second-page-text').classList.add('hide');
-      document.getElementById('initial-buttons').classList.remove('hide');
-      document.getElementById('back-button').classList.add('hide');
-    }
-  </script>
-</body>
-</html>
+      document.getElementById('second-page-text').classList.add('
