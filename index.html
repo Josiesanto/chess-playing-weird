@@ -218,7 +218,9 @@
 </head>
 <body>
   <h1>(: moinsen :)</h1>
-  <p>Schafe und AI haben beide ein erstaunliches Gedächtnis! Schafe können sich Gesichter merken, während AI Informationen speichern und abrufen kann. Interessante Verbindung, oder?</p>
+  <div id="first-page-text">
+    <p>Schafe und AI haben beide ein erstaunliches Gedächtnis! Schafe können sich Gesichter merken, während AI Informationen speichern und abrufen kann. Interessante Verbindung, oder?</p>
+  </div>
   <h2 id="heading1">let's go</h2>
   <div class="button-container" id="initial-buttons">
     <div class="heart-button" onclick="showModelViewer()" aria-label="Show 3D model"></div>
@@ -251,6 +253,7 @@
       document.getElementById('heading1').classList.add('hide');
       document.getElementById('heading2').classList.remove('hide');
       document.getElementById('second-page-text').classList.remove('hide');
+      document.getElementById('first-page-text').classList.add('hide');
       document.getElementById('initial-buttons').classList.add('hide');
       document.getElementById('back-button').classList.remove('hide');
     }
@@ -260,10 +263,10 @@
       document.getElementById('heading1').classList.remove('hide');
       document.getElementById('heading2').classList.add('hide');
       document.getElementById('second-page-text').classList.add('hide');
+      document.getElementById('first-page-text').classList.remove('hide');
       document.getElementById('initial-buttons').classList.remove('hide');
       document.getElementById('back-button').classList.add('hide');
     }
   </script>
 </body>
 </html>
-
